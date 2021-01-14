@@ -1,7 +1,20 @@
-h1 {
-    color: red;
-}
 
 .navbar {
     padding-left: 50px;
+}
+
+.page-header {
+    padding: 150px 150px 100px 150px;
+    text-align: center;
+    background-color: #e3e3e3;
+}
+
+.page-header h1 a {
+    color: black;
+    font-size: 40pt;
+    text-decoration: none;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
 }
