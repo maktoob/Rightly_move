@@ -1,19 +1,19 @@
 {% extends 'website/base.html' %}
 {% block content %}
 <div class="content-fluid">
-    <div class="row" style="padding-left: 50px; padding-right: 50px">
-        <div class="col-lg-2">
+    <div class="row" style="padding-top: 150px">
+        <div class="col-lg-4" style="padding-left: 50px; padding-right: 50px">
             <div class="sidenav">
             </div>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-6" style="padding-left: 10px; padding-right: 20px; padding-bottom: 20px">
             {% for post in posts %}
-            <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
-            <p>{{ post.date }}</p>
-            {% for category in post.category.all %}
-            {{ category.topic }}
+            <h3 style="padding-top: 15px"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+            <p>{{ post.date }} |{% for category in post.category.all %} {{ category.topic }} {% endfor %} </p>
+            {{ post.text|truncatechars:500|linebreaksbr }}
+            <br><br><hr>
             {% endfor %}
-            {% endfor %}
+            <br><br>
         </div>
     </div>
 </div>
