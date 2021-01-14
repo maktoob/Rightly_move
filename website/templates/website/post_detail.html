@@ -1,0 +1,15 @@
+{% extends 'website/base.html' %}
+{% block content %}
+<div class="content-fluid" style="padding-top: 100px;">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-5 post" style="padding-left: 80px; padding-right: 60px">
+            <h3>{{ post.title }}</h3>
+            in {% for category in categories %}{{ category.topic }} {% endfor %}</a>
+            <p>{{ post.date }}</p>
+            <p>{{ post.text }}</p>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+{% endblock content %}
