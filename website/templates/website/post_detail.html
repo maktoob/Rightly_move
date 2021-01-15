@@ -3,11 +3,40 @@
 <div class="content-fluid">
     <div class="row" style="padding-top: 50px">
         <div class="col-lg-3" style="padding-left: 50px; padding-right: 50px"></div>
-        <div class="col-lg-6 post" style="; padding-top: 40px; padding-left: 150px; padding-right: 20px; padding-bottom: 20px">
+        <div class="col-lg-6 post" style="padding-top: 40px; padding-left: 150px; padding-right: 20px; padding-bottom: 20px">
             <h3>{{ post.title }}</h3>
             in {% for category in categories %}{{ category.topic }} {% endfor %}</a>
             <p>{{ post.date }}</p>
             <p>{{ post.text }}</p>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 50px">
+        <div class="col-lg-3" style="padding-left: 50px; padding-right: 50px"></div>
+        <div class="col-lg-6 card-body" style="padding-top: 40px; padding-left: 150px; padding-right: 20px; padding-bottom: 20px">
+            <p>{{ comments.count }} comments</p>
+            {% for comment in comments %}
+            <div class="comment">
+                <p class="font-weight-bold">
+                    {{ comment.name }}
+                    <span class="text-muted font-weight-normal">
+                        | {{ comment.created_on }}</span></p>
+                {{ comment.text|linebreaksbr }}
+                <br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3" style="padding-left: 50px; padding-right: 50px"></div>
+        <div class="col-lg-5 card-body"
+             style="padding-top: 40px; padding-left: 150px; padding-right: 20px; padding-bottom: 20px">
+            <p>Leave a comment</p>
+            <form method="post">
+                {% csrf_token %}
+                {{ comment_form }}
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </form>
         </div>
     </div>
 </div>
