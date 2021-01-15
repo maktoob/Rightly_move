@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import *
 from .forms import CommentForm
@@ -25,7 +25,7 @@ def post_detail(request, pk):
             new_comment.post = post
             # new_comment.active = True
             new_comment.save()
-            comment_form = CommentForm()
+            return redirect('post_detail', pk=post.pk)
     else:
         comment_form = CommentForm()
 
