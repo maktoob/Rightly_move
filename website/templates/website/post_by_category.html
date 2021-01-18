@@ -4,7 +4,7 @@
     <div class="row" style="padding-top: 80px; padding-bottom: 120px;">
         <div class="col-lg-4"></div>
         <div class="col-lg-5 category-view">
-            <h2><strong>{{ category.title }}</strong></h2>
+            <h2 class="category-topic"><strong>{{ category.title }}</strong></h2>
             <hr>
             {% for post in posts %}
             <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
