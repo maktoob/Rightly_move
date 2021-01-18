@@ -10,8 +10,14 @@
 
 .page-header h1 a {
     color: black;
-    font-size: 40pt;
+    font-family: 'Cookie';
+    font-size: 75pt;
+    font-weight: bold;
     text-decoration: none;
+}
+
+.h1, h2, h3, h4, p {
+    font-family: 'Georgia';
 }
 
 a:link, a:visited, a:hover, a:active {
