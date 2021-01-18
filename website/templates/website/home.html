@@ -6,7 +6,9 @@
         <div class="col-lg-6" style="padding-left: 150px; padding-right: 20px; padding-bottom: 20px">
             {% for post in posts %}
             <h3 style="padding-top: 15px"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
-            <p>{{ post.date }} |{% for category in post.category.all %} {{ category.topic }} {% endfor %} </p>
+            <p>{{ post.date }} |{% for category in post.category.all %}
+                <a href="{% url 'post_by_category' category.topic %}">{{ category.topic }}</a>
+                {% endfor %} </p>
             <p>{{ post.text|truncatechars:500|linebreaksbr }}</p>
             {% if post.image %}
             <img class="image" src="{{ post.image.url }}" alt="{{ post.title }}"><br>
