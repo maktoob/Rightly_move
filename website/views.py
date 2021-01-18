@@ -37,3 +37,9 @@ def post_detail(request, pk):
                }
     return render(request, 'website/post_detail.html', context=context)
 
+
+def post_by_category(request, category):
+    posts = Post.objects.filter(category__topic__contains=category).order_by('-date')
+
+    context = {'category': category, 'posts': posts}
+    return render(request, 'website/post_by_category.html', context)
