@@ -9,6 +9,9 @@
             in {% for category in categories %}{{ category.topic }} {% endfor %}</a>
             <p>{{ post.date }}</p>
             <p>{{ post.text }}</p>
+            {% if post.image %}
+            <img class="detail-image" align="center" src="{{ post.image.url }}" alt="{{ post.title }}">
+            {% endif %}
 
     <div class="card" style="margin-top: 50px; margin-bottom: 50px">
         <div class="card-body" style="padding-top: 30px; padding-left: 30px; padding-right: 30px; padding-bottom: 20px">
