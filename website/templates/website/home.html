@@ -7,7 +7,7 @@
             {% for post in posts %}
             <h3 style="padding-top: 15px"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
             <p>{{ post.date }} |{% for category in post.category.all %}
-                <a href="{% url 'post_by_category' category.topic %}">{{ category.topic }}</a>
+                <a class="category-topic" href="{% url 'post_by_category' category.topic %}">{{ category.topic }}</a>
                 {% endfor %} </p>
             <p>{{ post.text|truncatechars:500|linebreaksbr }}</p>
             {% if post.image %}
