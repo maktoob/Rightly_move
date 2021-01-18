@@ -17,6 +17,7 @@ class Post(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     text = models.TextField()
     category = models.ManyToManyField(Category, related_name='posts')
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
 
     class Meta:
         ordering = ['-date']
