@@ -1,0 +1,17 @@
+{% extends 'website/base.html' %}
+{% block content %}
+<div class="content-fluid">
+    <div class="row" style="padding-top: 50px">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-5">
+            <h2 class="search-results">Search Results</h2><hr>
+            {% for post in posts %}
+            <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+            <p>{{ post.date }}</p>
+            <p>{{ post.text|truncatechars:300|linebreaksbr }}</p>
+            <br><hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
