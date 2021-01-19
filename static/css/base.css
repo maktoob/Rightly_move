@@ -23,7 +23,7 @@
     font-weight: bold;
 }
 
-.category-topic, .search-results {
+.category-topic, .search-results, .tag-title {
     color: #525252;
 }
 
@@ -41,6 +41,10 @@ div p {
 .a:hover {
     text-decoration: underline;
     color: black;
+}
+
+.tag-badge {
+    color: #ffffff !important;
 }
 
 .image {
