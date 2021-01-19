@@ -23,7 +23,7 @@
     font-weight: bold;
 }
 
-.category-topic {
+.category-topic, .search-results {
     color: #525252;
 }
 

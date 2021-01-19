@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import *
+from django.db.models import Q
 from .forms import CommentForm
 
 
@@ -43,3 +44,10 @@ def post_by_category(request, category):
 
     context = {'category': category, 'posts': posts}
     return render(request, 'website/post_by_category.html', context)
+
+
+def search_result(request):
+    query = request.GET.get('q')
+    posts = Post.objects.filter(Q(title__icontains=query) | Q(text__icontains=query))
+    context = {'posts': posts}
+    return render(request, 'website/search_result.html', context)
