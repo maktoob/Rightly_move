@@ -3,13 +3,17 @@ from django.http import HttpResponse
 from .models import *
 from django.db.models import Q
 from .forms import CommentForm
+from django.template.defaultfilters import slugify
+from taggit.models import Tag
 
 
 def home(request):
     posts = Post.objects.all()
     categories = Category.objects.all()
+    tags = Tag.objects.all()
     context = {'posts': posts,
-               'categories': categories}
+               'categories': categories,
+               'tags': tags}
     return render(request, 'website/home.html', context)
 
 
@@ -44,6 +48,13 @@ def post_by_category(request, category):
 
     context = {'category': category, 'posts': posts}
     return render(request, 'website/post_by_category.html', context)
+
+
+def post_tag(request, slug):
+    tag = get_object_or_404(Tag, slug=slug)
+    posts = Post.objects.filter(tags=tag)
+    context = {'tag': tag, 'posts': posts}
+    return render(request, 'website/post_tag.html', context)
 
 
 def search_result(request):
