@@ -32,13 +32,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                        Category
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Daily Life</a>
-                        <a class="dropdown-item" href="#">Study & Work</a>
-                        <a class="dropdown-item" href="#">Travel</a>
-                        <a class="dropdown-item" href="#">House</a>
+                        <a class="dropdown-item" href="{% url 'post_by_category' 'Daily Life' %}">Daily Life</a>
+                        <a class="dropdown-item" href="{% url 'post_by_category' 'Study & Work' %}">Study & Work</a>
+                        <a class="dropdown-item" href="{% url 'post_by_category' 'Travel' %}">Travel</a>
+                        <a class="dropdown-item" href="{% url 'post_by_category' 'House' %}">House</a>
                     </div>
                 </li>
                 <li class="nav-item">
