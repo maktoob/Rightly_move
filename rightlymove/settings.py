@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'website.apps.WebsiteConfig',
 
     'crispy_forms',
+    'taggit',
+    'hitcount',
 
     'django.contrib.admin',
     'django.contrib.auth',

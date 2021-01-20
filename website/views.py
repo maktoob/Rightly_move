@@ -3,13 +3,20 @@ from django.http import HttpResponse
 from .models import *
 from django.db.models import Q
 from .forms import CommentForm
+from django.template.defaultfilters import slugify
+from taggit.models import Tag
+from hitcount.utils import get_hitcount_model
+from hitcount.views import HitCountMixin
 
 
 def home(request):
     posts = Post.objects.all()
     categories = Category.objects.all()
+    tags = Tag.objects.all()
+    count_hit = True
     context = {'posts': posts,
-               'categories': categories}
+               'categories': categories,
+               'tags': tags}
     return render(request, 'website/home.html', context)
 
 
@@ -36,6 +43,17 @@ def post_detail(request, pk):
                'new_comment': new_comment,
                'comment_form': comment_form,
                }
+    # hitcount logic
+    hit_count = get_hitcount_model().objects.get_for_object(object)
+    hits = hit_count.hits
+    hitcontext = context['hitcount'] = {'pk': hit_count.pk}
+    hit_count_response = HitCountMixin.hit_count(request, hit_count)
+    if hit_count_response.hit_counted:
+        hits = hits + 1
+        hitcontext['hit_counted'] = hit_count_response.hit_counted
+        hitcontext['hit_message'] = hit_count_response.hit_message
+        hitcontext['total_hits'] = hits
+
     return render(request, 'website/post_detail.html', context=context)
 
 
@@ -44,6 +62,13 @@ def post_by_category(request, category):
 
     context = {'category': category, 'posts': posts}
     return render(request, 'website/post_by_category.html', context)
+
+
+def post_tag(request, slug):
+    tag = get_object_or_404(Tag, slug=slug)
+    posts = Post.objects.filter(tags=tag)
+    context = {'tag': tag, 'posts': posts}
+    return render(request, 'website/post_tag.html', context)
 
 
 def search_result(request):

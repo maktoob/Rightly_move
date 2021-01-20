@@ -9,6 +9,8 @@ verify_ssl = true
 django = "*"
 django-crispy-forms = "*"
 pillow = "*"
+django-taggit = "*"
+django-hitcount = "*"
 
 [requires]
 python_version = "3.8"
