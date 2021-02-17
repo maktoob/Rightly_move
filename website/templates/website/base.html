@@ -21,9 +21,11 @@
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -48,18 +50,25 @@
                     <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="{% url 'search_result' %}" method="get">
-                <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <form class="form-inline" action="{% url 'search_result' %}" method="get">
+                <input name="q" class="form-control search-form" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success search-button" type="submit">Search</button>
             </form>
         </div>
     </nav>
     <title>Rightly Move to the UK</title>
+    <div class="page-header">
+        <h1><a href="{% url 'home' %}">Rightly Move to the UK</a></h1>
+    </div>
+    <div class="row category-menu">
+        <div class="col-lg-3 category-item"><a href="{% url 'post_by_category' 'Daily Life' %}">Daily Life</a></div>
+        <div class="col-lg-3 category-item"><a href="{% url 'post_by_category' 'Study & Work' %}">Study & Work</a></div>
+        <div class="col-lg-3 category-item"><a href="{% url 'post_by_category' 'Travel' %}">Travel</a></div>
+        <div class="col-lg-3 category-item"><a href="{% url 'post_by_category' 'House' %}">House</a></div>
+    </div>
 </head>
 <body>
-<div class="page-header">
-    <h1><a href="{% url 'home' %}">Rightly Move to the UK</a></h1>
-</div>
+
 {% block content %}
 {% endblock content %}
 </body>
