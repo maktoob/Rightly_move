@@ -71,6 +71,16 @@
     font-weight: bold;
 }
 
+.home-post-wrapper {
+    padding-top: 50px;
+}
+
+.home-post {
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .category-topic, .search-results, .tag-title {
     color: #525252;
 }
@@ -95,8 +105,8 @@ a:hover {
     color: #ffffff !important;
 }
 
-.image {
-    width: 650px;
+.post-image {
+    width: 100%;
 }
 
 .detail-image {

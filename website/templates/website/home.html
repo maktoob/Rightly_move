@@ -1,17 +1,17 @@
 {% extends 'website/base.html' %}
 {% block content %}
 <div class="content-fluid">
-    <div class="row" style="padding-top: 50px">
-        <div class="col-lg-3" style="padding-left: 50px; padding-right: 50px"></div>
-        <div class="col-lg-6" style="padding-left: 150px; padding-right: 20px; padding-bottom: 20px">
+    <div class="row home-post-wrapper">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-5 home-post">
             {% for post in posts %}
-            <h3 style="padding-top: 15px"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+            <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
             <p>{{ post.date }} |{% for category in post.category.all %}
                 <a class="category-topic" href="{% url 'post_by_category' category.topic %}">{{ category.topic }}</a>
                 {% endfor %} </p>
             <p>{{ post.text|truncatechars:500|linebreaksbr }}</p>
             {% if post.image %}
-            <img class="image" src="{{ post.image.url }}" alt="{{ post.title }}"><br>
+            <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }}"><br><br>
             {% endif %}
 
             {% for tag in post.tags.all %}
