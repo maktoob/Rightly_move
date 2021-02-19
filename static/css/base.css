@@ -71,6 +71,48 @@
     font-weight: bold;
 }
 
+.home-post-wrapper {
+    padding-top: 50px;
+}
+
+.home-post {
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 1%;
+}
+
+.home-side-menu {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.side-about {
+    width: 70%;
+    margin-top: 10%;
+    margin-bottom: 30%;
+}
+
+.sidebar-sticky {
+    position: sticky;
+    top: 30px;
+}
+
+.tag-list {
+    margin-top: 30%;
+    margin-bottom: 50%;
+}
+
+.popular-list {
+    margin-top: 50%;
+    margin-bottom: 15%;
+}
+
+.about {
+    padding: 15px 0px 15px 0px;
+}
+
+
+
 .category-topic, .search-results, .tag-title {
     color: #525252;
 }
@@ -95,8 +137,8 @@ a:hover {
     color: #ffffff !important;
 }
 
-.image {
-    width: 650px;
+.post-image {
+    width: 100%;
 }
 
 .detail-image {

@@ -1,17 +1,17 @@
 {% extends 'website/base.html' %}
 {% block content %}
 <div class="content-fluid">
-    <div class="row" style="padding-top: 50px">
-        <div class="col-lg-3" style="padding-left: 50px; padding-right: 50px"></div>
-        <div class="col-lg-6" style="padding-left: 150px; padding-right: 20px; padding-bottom: 20px">
+    <div class="row home-post-wrapper">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-6 home-post">
             {% for post in posts %}
-            <h3 style="padding-top: 15px"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+            <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
             <p>{{ post.date }} |{% for category in post.category.all %}
                 <a class="category-topic" href="{% url 'post_by_category' category.topic %}">{{ category.topic }}</a>
                 {% endfor %} </p>
             <p>{{ post.text|truncatechars:500|linebreaksbr }}</p>
             {% if post.image %}
-            <img class="image" src="{{ post.image.url }}" alt="{{ post.title }}"><br>
+            <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }}"><br><br>
             {% endif %}
 
             {% for tag in post.tags.all %}
@@ -20,6 +20,59 @@
             <br><br><hr>
             {% endfor %}
             <br><br>
+            {% if post_list.has_other_pages %}
+            <nav aria-label="...">
+                <ul class="pagination justify-content-center">
+                    {% if post_list.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ post_list.previous_page_number }}">Prev</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
+                    </li>
+                    {% endif %}
+                    {% for i in post_list.paginator.page_range %}
+                    {% if post_list.number == i %}
+                    <li class="page-item active" aria-current="page">
+                                <span class="page-link">
+                                    {{ i }}
+                                <span class="sr-only">(current)</span>
+                                </span>
+                    </li>
+                    {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if post_list.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ post_list.next_page_number }}">Next</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        {% endif %}
+        <div class="col-lg-2 home-side-menu">
+            <div class="sidebar side-about">
+                <h4>About</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+            </div>
+            <div class="sidebar sidebar-sticky tag-list">
+                <div class="tag-list">
+                    <h4>Tags</h4>
+                    journey work lifestyle
+                </div>
+
+                <div class="popular-list">
+                    <h4>Popular stories</h4>
+                </div>
+            </div>
         </div>
     </div>
 </div>

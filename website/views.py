@@ -5,15 +5,20 @@ from django.db.models import Q
 from .forms import CommentForm
 from django.template.defaultfilters import slugify
 from taggit.models import Tag
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def home(request):
     posts = Post.objects.all()
     categories = Category.objects.all()
     tags = Tag.objects.all()
-    context = {'posts': posts,
+    paginator = Paginator(posts, 3)
+    page = request.GET.get('page', 1)
+    post_list = paginator.page(page)
+    context = {'posts': post_list,
                'categories': categories,
-               'tags': tags}
+               'tags': tags,
+               'post_list': post_list}
     return render(request, 'website/home.html', context)
 
 
