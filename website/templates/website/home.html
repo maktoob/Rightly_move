@@ -1,9 +1,9 @@
 {% extends 'website/base.html' %}
 {% block content %}
 <div class="content-fluid">
-    <div class="row home-post-wrapper">
+    <div class="row post-wrapper">
         <div class="col-lg-2"></div>
-        <div class="col-lg-6 home-post">
+        <div class="col-lg-7 post">
             {% for post in posts %}
             <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
             <p>{{ post.date }} |{% for category in post.category.all %}
@@ -57,25 +57,7 @@
             </nav>
         </div>
         {% endif %}
-        <div class="col-lg-2 home-side-menu">
-            <div class="sidebar side-about">
-                <h4>About</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-            </div>
-            <div class="sidebar sidebar-sticky">
-                <div class="tag-list">
-                    <h4>Tags</h4>
-                    {% for tag in tags %}
-                    <a href="{% url 'post_tag' tag.slug %}" class="tag-button btn btn-sm mb-1">#{{ tag }}</a>
-                    {% endfor %}
-                </div>
 
-                <div class="popular-list">
-                    <h4>Popular stories</h4>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 {% endblock content %}
