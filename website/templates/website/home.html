@@ -1,9 +1,9 @@
 {% extends 'website/base.html' %}
 {% block content %}
 <div class="content-fluid">
-    <div class="row home-post-wrapper">
+    <div class="row post-wrapper">
         <div class="col-lg-2"></div>
-        <div class="col-lg-7 home-post">
+        <div class="col-lg-7 post">
             {% for post in posts %}
             <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
             <p>{{ post.date }} |{% for category in post.category.all %}

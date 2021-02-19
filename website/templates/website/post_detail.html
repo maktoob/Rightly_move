@@ -2,9 +2,9 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="content-fluid">
-    <div class="row" style="padding-top: 50px">
-        <div class="col-lg-3" style="padding-left: 50px; padding-right: 50px"></div>
-        <div class="col-lg-6 post" style="padding-top: 40px; padding-left: 150px; padding-right: 20px; padding-bottom: 20px">
+    <div class="row post-wrapper">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-7 post">
             <h3>{{ post.title }}</h3>
             in {% for category in categories %}
             <a href="{% url 'post_by_category' category.topic %}">{{ category.topic }}<br>
@@ -12,7 +12,7 @@
             <p>{{ post.date }}</p>
             <p>{{ post.text }}</p>
             {% if post.image %}
-            <img class="detail-image" align="center" src="{{ post.image.url }}" alt="{{ post.title }}"><br>
+            <img class="post-image" align="center" src="{{ post.image.url }}" alt="{{ post.title }}"><br>
             {% endif %}
             <br>
             {% for tag in post.tags.all %}
