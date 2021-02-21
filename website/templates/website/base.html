@@ -69,26 +69,30 @@
     </div>
 </head>
 <body>
-       <div class="col-lg-2 home-side-menu">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <div class="col-lg-3 sidebar">
             <div class="sidebar side-about">
                 <h4>About</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
             </div>
-            <div class="sidebar sidebar-sticky sticky-top">
-                <div class="tag-list">
-                    <h4>Tags</h4>
-                    {% for tag in tags %}
-                    <a href="{% url 'post_tag' tag.slug %}" class="tag-button btn btn-sm mb-1">#{{ tag }}</a>
-                    {% endfor %}
-                </div>
-                <div class="popular-list">
-                    <h4>Popular stories</h4>
-                </div>
+            <div class="sidebar tag-list sticky-top">
+                <h4>Tags</h4>
+                {% for tag in tags %}
+                <a href="{% url 'post_tag' tag.slug %}" class="tag-button btn btn-sm mb-1">#{{ tag }}</a>
+                {% endfor %}
+            </div>
+            <div class="sidebar popular-list">
+                <h4>Popular stories</h4>
             </div>
         </div>
-{% block content %}
-{% endblock content %}
+    </div>
+</div>
 </body>
 <div class="footer">
     <div class="container text-center">
