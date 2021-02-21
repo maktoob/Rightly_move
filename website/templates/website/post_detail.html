@@ -3,8 +3,8 @@
 {% block content %}
 <div class="content-fluid">
     <div class="row post-wrapper">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-7 post">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-8 post">
             <h3>{{ post.title }}</h3>
             in {% for category in categories %}
             <a href="{% url 'post_by_category' category.topic %}">{{ category.topic }}<br>
@@ -45,6 +45,7 @@
             </form>
         </div>
         </div>
+    </div>
     </div>
 </div>
 {% endblock content %}

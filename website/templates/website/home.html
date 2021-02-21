@@ -2,8 +2,8 @@
 {% block content %}
 <div class="content-fluid">
     <div class="row post-wrapper">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-7 post">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-8 post">
             {% for post in posts %}
             <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
             <p>{{ post.date }} |{% for category in post.category.all %}
@@ -57,7 +57,6 @@
             </nav>
         </div>
         {% endif %}
-
     </div>
 </div>
 {% endblock content %}
