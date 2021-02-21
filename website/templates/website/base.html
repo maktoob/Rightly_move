@@ -81,7 +81,8 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
             </div>
-            <div class="sidebar tag-list sticky-top">
+            <div class="sidebar sidebar-sticky">
+            <div class="sidebar tag-list">
                 <h4>Tags</h4>
                 {% for tag in tags %}
                 <a href="{% url 'post_tag' tag.slug %}" class="tag-button btn btn-sm mb-1">#{{ tag }}</a>
@@ -89,6 +90,7 @@
             </div>
             <div class="sidebar popular-list">
                 <h4>Popular stories</h4>
+            </div>
             </div>
         </div>
     </div>
