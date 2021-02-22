@@ -107,6 +107,7 @@ a:hover {
 .sidebar-sticky {
     position: sticky;
     top: 0;
+    padding-left: 0;
 }
 
 .tag-list {
