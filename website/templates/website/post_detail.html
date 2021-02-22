@@ -6,6 +6,7 @@
         <div class="col-lg-4"></div>
         <div class="col-lg-8 post">
             <h3>{{ post.title }}</h3>
+            <p>views: {{ post.view_count }}</p>
             in {% for category in categories %}
             <a href="{% url 'post_by_category' category.topic %}">{{ category.topic }}<br>
                 {% endfor %}</a>

@@ -102,7 +102,6 @@ a:hover {
     width: 90%;
     margin-top: 15%;
     margin-bottom: 10%;
-
 }
 
 .sidebar-sticky {
@@ -131,6 +130,17 @@ a.tag-button {
     margin-top: 15%;
     margin-bottom: 10%;
     width: 90%;
+}
+
+.popular-post-wrapper {
+    padding: 3px 0px 0px 0px;
+}
+
+.popular-post-title {
+    font-size: 1.02rem;
+    font-weight: bold;
+    color: black;
+    padding: 5px 0px 8px 0px;
 }
 
 .about {

@@ -89,7 +89,16 @@
                 {% endfor %}
             </div>
             <div class="sidebar popular-list">
-                <h4>Popular stories</h4>
+                <h4>Popular Posts</h4>
+                <div class="popular-post-wrapper">
+                {% for post in popular_posts %}
+                    <a href="{% url 'post_detail' post.pk %}"><div class="popular-post-title">{{ post.title }}</div></a>
+                    <p><small>{{ post.text|truncatechars:60|linebreaksbr }}</small></p>
+                {% if post.image %}
+                <img class="post-image" align="center" src="{{ post.image.url }}" alt="{{ post.title }}"><br><br>
+                {% endif %}
+                {% endfor %}
+                </div>
             </div>
             </div>
         </div>
