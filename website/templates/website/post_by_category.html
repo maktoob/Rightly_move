@@ -1,9 +1,9 @@
 {% extends 'website/base.html' %}
 {% block content %}
 <div class="content-fluid">
-    <div class="row" style="padding-top: 80px; padding-bottom: 120px;">
+    <div class="row post-wrapper">
         <div class="col-lg-4"></div>
-        <div class="col-lg-5 category-view">
+        <div class="col-lg-8 post">
             <h2 class="category-topic"><strong>{{ category.title }}</strong></h2>
             <hr>
             {% for post in posts %}
