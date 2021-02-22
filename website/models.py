@@ -24,6 +24,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     slug = models.SlugField(null=True, default=uuid.uuid1)
     tags = TaggableManager()
+    view_count = models.IntegerField(null=False, default=0)
 
     class Meta:
         ordering = ['-date']
