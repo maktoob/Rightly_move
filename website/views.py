@@ -12,18 +12,23 @@ def popular_posts():
     return Post.objects.order_by('-view_count')[:2]
 
 
+def tags():
+    return Tag.objects.all()
+
+
 def home(request):
     posts = Post.objects.all()
     categories = Category.objects.all()
-    tags = Tag.objects.all()
     paginator = Paginator(posts, 3)
     page = request.GET.get('page', 1)
     post_list = paginator.page(page)
     context = {'posts': post_list,
                'categories': categories,
-               'tags': tags,
+
                'post_list': post_list,
-               'popular_posts': popular_posts()}
+               'tags': tags(),
+               'popular_posts': popular_posts(),
+               }
     return render(request, 'website/home.html', context)
 
 
@@ -51,6 +56,7 @@ def post_detail(request, pk):
                'comments': comments,
                'new_comment': new_comment,
                'comment_form': comment_form,
+               'tags': tags(),
                'popular_posts': popular_posts(),
                }
     return render(request, 'website/post_detail.html', context=context)
@@ -61,7 +67,9 @@ def post_by_category(request, category):
 
     context = {'category': category,
                'posts': posts,
-               'popular_posts': popular_posts()}
+               'tags': tags(),
+               'popular_posts': popular_posts(),
+               }
     return render(request, 'website/post_by_category.html', context)
 
 
@@ -70,6 +78,7 @@ def post_tag(request, slug):
     posts = Post.objects.filter(tags=tag)
     context = {'tag': tag,
                'posts': posts,
+               'tags': tags(),
                'popular_posts': popular_posts()}
     return render(request, 'website/post_tag.html', context)
 
@@ -78,5 +87,6 @@ def search_result(request):
     query = request.GET.get('q')
     posts = Post.objects.filter(Q(title__icontains=query) | Q(text__icontains=query))
     context = {'posts': posts,
+               'tags': tags(),
                'popular_posts': popular_posts()}
     return render(request, 'website/search_result.html', context)
