@@ -62,7 +62,7 @@
         <h1><a href="{% url 'home' %}">Rightly Move to the UK</a></h1>
     </div>
     <div class="row category-menu">
-        <div class="col-lg-3 category-item"><a href="{% url 'post_by_category' 'Daily Life' %}">Daily Life</a></div>
+        <div class="col-lg-3 category-item {% if category.title.strip.lower == 'daily life' %} selected {% endif %}"><a href="{% url 'post_by_category' 'Daily Life' %}">Daily Life</a></div>
         <div class="col-lg-3 category-item"><a href="{% url 'post_by_category' 'Study & Work' %}">Study & Work</a></div>
         <div class="col-lg-3 category-item"><a href="{% url 'post_by_category' 'Travel' %}">Travel</a></div>
         <div class="col-lg-3 category-item"><a href="{% url 'post_by_category' 'House' %}">House</a></div>

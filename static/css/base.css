@@ -183,3 +183,7 @@ div p {
     padding: 80px 0px 80px 0px;
     margin-left: 5%;
 }
+
+.selected {
+    font-weight: bold;
+}
