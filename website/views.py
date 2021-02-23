@@ -2,10 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import *
 from django.db.models import Q, Count
-from .forms import CommentForm
+from .forms import CommentForm, ContactForm
 from django.template.defaultfilters import slugify
 from taggit.models import Tag
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.core.paginator import Paginator
+from django.core.mail import send_mail, BadHeaderError
 
 
 def popular_posts():
@@ -90,3 +91,25 @@ def search_result(request):
                'tags': tags(),
                'popular_posts': popular_posts()}
     return render(request, 'website/search_result.html', context)
+
+
+def contact(request):
+    form = ContactForm()
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            subject = form.cleaned_data['subject']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, email, ['layla0911@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('success')
+    context = {'form': form,
+               'tags': tags(),
+               'popular_posts': popular_posts()
+               }
+    return render(request, 'website/contact.html', context)
+

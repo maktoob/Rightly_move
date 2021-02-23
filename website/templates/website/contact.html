@@ -1,0 +1,19 @@
+{% extends 'website/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="content-fluid">
+    <div class="row contact-wrapper">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-7 contact-form">
+        <h3>Contact Me</h3><br>
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-info">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
