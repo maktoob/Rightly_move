@@ -10,6 +10,7 @@ django = "*"
 django-crispy-forms = "*"
 pillow = "*"
 django-taggit = "*"
+django-ses = "*"
 
 [requires]
 python_version = "3.8"
