@@ -25,7 +25,6 @@ def home(request):
     post_list = paginator.page(page)
     context = {'posts': post_list,
                'categories': categories,
-
                'post_list': post_list,
                'tags': tags(),
                'popular_posts': popular_posts(),
@@ -113,3 +112,6 @@ def contact(request):
                }
     return render(request, 'website/contact.html', context)
 
+
+def success(request):
+    return HttpResponse('Success! Thanks for your message.')
