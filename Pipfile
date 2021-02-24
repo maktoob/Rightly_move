@@ -11,6 +11,7 @@ django-crispy-forms = "*"
 pillow = "*"
 django-taggit = "*"
 django-ses = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
