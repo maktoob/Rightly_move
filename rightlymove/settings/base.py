@@ -33,16 +33,15 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'website.apps.WebsiteConfig',
-
-    'crispy_forms',
-    'taggit',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'taggit',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
