@@ -12,6 +12,7 @@ pillow = "*"
 django-taggit = "*"
 django-ses = "*"
 gunicorn = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"
