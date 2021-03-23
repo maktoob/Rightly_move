@@ -1,3 +1,9 @@
+.container-fluid {
+    padding-left: 0rem;
+    padding-right: 0rem;
+    overflow: hidden;
+}
+
 a:link, a:visited, a:active {
     text-decoration: none;
     color: #011e66;
