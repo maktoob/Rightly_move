@@ -75,11 +75,11 @@
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-8">
             {% block content %}
             {% endblock content %}
         </div>
-        <div class="col-lg-3 sidebar">
+        <div class="col-3 sidebar">
             <div class="sidebar side-about">
                 <h4>About</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -97,7 +97,7 @@
                 <div class="popular-post-wrapper">
                 {% for post in popular_posts %}
                     <a href="{% url 'post_detail' post.pk %}"><div class="popular-post-title">{{ post.title }}</div></a>
-                    <p><small>{{ post.text|truncatechars:60|linebreaksbr }}</small></p>
+                    <p style="font-size: 0.92rem">{{ post.text|truncatechars:100|linebreaksbr }}</p>
                 {% if post.image %}
                 <img class="post-image" align="center" src="{{ post.image.url }}" alt="{{ post.title }}"><br><br>
                 {% endif %}
@@ -107,11 +107,11 @@
             </div>
         </div>
     </div>
-</div>
-</body>
 <div class="footer">
     <div class="container text-center">
         <div class="copyright-wrapper"><small>Copyright © 2021 JW Choi<br/>
             Opinions expressed here are solely those of the author.</small></div>
     </div>
 </div>
+</div>
+</body>
