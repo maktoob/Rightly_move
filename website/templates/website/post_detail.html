@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row post-section">
         <div class="col-4"></div>
-        <div class="col-7 post">
+        <div class="col-8 post">
             <h3>{{ post.title }}</h3>
             <p>{{ post.date }} |{% for category in categories %}
             <a class="category-topic" href="{% url 'post_by_category' category.topic %}">{{ category.topic }}
