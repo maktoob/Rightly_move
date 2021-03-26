@@ -5,10 +5,6 @@
     min-height: 100vh;
 }
 
-.main-wrapper {
-    padding-right: 0;
-}
-
 a:link, a:visited, a:active {
     text-decoration: none;
     color: #000000;
@@ -94,33 +90,29 @@ a:hover {
 
 .post-section {
     padding-top: 50px;
-    /*margin-left: -55px;*/
 }
 
 .post-wrapper {
     padding-top: 50px;
 }
 
+.post {
+    width: 100%;
+    margin: auto;
+}
+
 .sidebar {
     --offset: var(--space);
     top: var(--offset);
-    /*padding-left: 0;*/
-    padding-right: 0;
+    padding-left: 3%;
+    padding-right: 5%;
     padding-top: 3%;
-    position: relative;
-    width: 60%;
-    min-height: 300px;
-    margin-left: 0;
-    /*text-align: left;*/
-    /*padding-left: 0;*/
 }
 
 .side-about {
-    /*width: 60%;*/
-    /*margin-top: 15%;*/
-    margin-bottom: 0;
-    padding-bottom: 0;
-    /*margin-bottom: 1%;*/
+    width: 90%;
+    margin-top: 15%;
+    margin-bottom: 10%;
 }
 
 .sidebar-sticky {
@@ -130,10 +122,10 @@ a:hover {
 }
 
 .tag-list {
-    /*margin-top: 10%;*/
-    /*margin-bottom: 10%;*/
+    margin-top: 10%;
+    margin-bottom: 10%;
     width: 90%;
-    /*padding-bottom: 10%;*/
+    padding-bottom: 10%;
 }
 
 a.tag-button {
@@ -150,9 +142,9 @@ a.tag-button {
 }
 
 .popular-list {
-    /*margin-top: 15%;*/
-    /*margin-bottom: 10%;*/
-    width: 100%;
+    margin-top: 15%;
+    margin-bottom: 10%;
+    width: 90%;
 }
 
 .popular-post-wrapper {
