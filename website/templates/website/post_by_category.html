@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row post-section">
         <div class="col-4"></div>
-        <div class="col-8 mx-auto post">
+        <div class="col-8 mx-auto post" style="padding-top: 20px">
             {% for post in posts %}
             <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
             <p>{{ post.date }}
