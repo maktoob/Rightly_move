@@ -92,6 +92,12 @@ def search_result(request):
     return render(request, 'website/search_result.html', context)
 
 
+def about(request):
+    context = {'tags': tags(),
+               'popular_posts': popular_posts()}
+    return render(request, 'website/about.html', context)
+
+
 def contact(request):
     form = ContactForm()
     if request.method == 'POST':
